@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./Styles/index.css">
+  <link rel="shortcut icon" href="./assets/bank_logo.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d55f8f06fd.js" crossorigin="anonymous"></script>
+  <title>Inicio MBB</title>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <section class="row  g-0">
+      <div class="col-lg-7 d-none d-lg-block animate__animated animate__fadeInLeft">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade " data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/bank1.jpg" class="d-block w-100 vh-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/bank2.jpg" class="d-block w-100 vh-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/bank3.jpg" class="d-block w-100 vh-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div id="login"
+        class="col-lg-5 d-flex align-items-center flex-column justify-content-around animate__animated animate__fadeInDown animate__delay-1s animate__slow">
+        <div id="logo">
+          <h1 id="mBB"><i class="bi bi-bank2 me-2"></i>Mindhub Brothers Banks</h1>
+        </div>
+        <div class="form-box">
+          <div class="button-box">
+            <div id="btn-index" ref="btn"></div>
+            <button type="button" id="toggle-btn1" ref="color1" class="toggle-btn" @click="loginPrev">Ingresar</button>
+            <button type="button" id="toggle-btn2" ref="color2" class="toggle-btn"
+              @click="registerPrev">Registrarme</button>
+          </div>
+          <form ref="form1" class="input-group justify-content-center" @submit.prevent="logIn(email,password)">
+            <input type="email" class="input-field" id="exampleEmail1" aria-describedby="emailHelp" required
+              placeholder="Ingrese email" v-model="email">
+            <input type="password" class="input-field" placeholder="Ingrese su contraseña" id="examplePassword1"
+              required v-model="password">
+            <button type="submit" id="submitLogin" class="submit-btn" :disabled=" disableBottom">Iniciar sesión <i
+                class="bi bi-box-arrow-in-right"></i></button>
+          </form>
+
+          <form ref="form2" id="group2" class="input-group justify-content-center" @submit.prevent="registrationUser">
+            <input type="text" class="input-field" id="exampleInputName1" aria-describedby="emailHelp"
+              v-model="registerFirstName" required placeholder="Nombre">
+            <input type="text" class="input-field" id="exampleInputName2" aria-describedby="emailHelp"
+              v-model="registerLastName" required placeholder="Apellido">
+            <input type="email" class="input-field" id="exampleInputEmail1" aria-describedby="emailHelp" required
+              placeholder="Email" v-model="registerEmail">
+            <input type="password" class="input-field" placeholder="Ingrese su contraseña" id="exampleInputPassword1"
+              required v-model="registerPassword">
+            <small class="selectAccount">Seleccione tipo de cuenta!</small>
+            <div class="btnAccount">
+              <input type="radio" class="btn-check " name="color" id="success-outlined" autocomplete="off"
+                value="AHORRO" v-model="picked">
+              <label class="btn btn-outline-suc" for="success-outlined" >Ahorro</label>
+              <input type="radio" class="btn-check " name="color" id="success-outlined-2" autocomplete="off"
+                value="CORRIENTE" v-model="picked">
+              <label class="btn btn-outline-sucs" for="success-outlined-2" >Corriente</label>
+            </div>
+            <button type="submit" id="submitRegister" class="submit-btn" :disabled=" disableRegister">Registrar <i
+                class="bi bi-check"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+  <script src="./Scripts/index.js"></script>
+
+</body>
+
+</html>

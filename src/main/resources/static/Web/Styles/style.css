@@ -1,0 +1,676 @@
+[v-cloak]{
+display: none;
+}
+:root{
+    --header-color: white;
+    --main-color1: rgba(135, 2, 35, 0.8);
+    --main-color2: rgba(202, 4, 53, 0.76);
+    --main-color3: #e94a6daf;
+    --main-color4: #f788a0;
+    --main-color5: #faf2da8c;
+ }
+ body{
+ width: 100% !important;
+ height: 100vh;
+ }
+ #body{
+     display: none;
+ }
+ div.container-fluid, div#app{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    background:#fff;
+    width: 100%;
+}
+ header{
+ 
+     background: var(--header-color);
+     width: 100%;
+    
+   
+ }
+ .navbar-toggler{
+     background: var(--main-color1);
+ }
+ #minhub, #salir, .addAccount, .solicitar{
+     color: var(--main-color1);
+     font-weight: bold;
+ }
+ #salir, .addAccount, .solicitar{
+     border: grey 1px solid;
+     border-radius: 5px;
+ }
+ .addAccount, .solicitar{
+     background: var(--header-color);
+     box-shadow: none !important;
+ }
+#salir:hover{
+    background: var(--main-color1);
+    color:var(--header-color);
+
+}
+.addAccount:hover{
+    background: var(--main-color1);
+    color:var(--header-color);
+}
+.solicitar:hover{
+    background: var(--main-color1) !important;
+    color:var(--header-color) !important;
+}
+#solicitar:checked ~ button[type="submit"]{
+    background: var(--main-color1) !important;
+    color:var(--header-color) !important;
+}
+ #sidebarMenu{
+ background: var(--main-color5) !important;
+ 
+ }
+ .nav-link.active{
+     background:var(--header-color);
+     border-radius: 5px;
+     color: var(--main-color1);
+     font-weight:bold;
+ }
+ .nav-link:hover{
+     transform: scale(1.1);
+     background: var(--main-color1);
+     border-radius: 5px;
+     color: white;
+ }
+ main #main{
+     min-height: 70%;
+ }
+ p.card-header, button.accordion-button{
+     background: var(--main-color5) !important;
+     color: var(--main-color1) !important;
+ }
+ .opcCuentas{
+    color: var(--main-color1);
+    font-weight: bold;
+    box-shadow: none !important;
+ }
+ .opcCuentas:hover{
+    background: var(--main-color1);
+    color:var(--header-color);
+ }
+ .btn-primary:hover{
+    background: var(--main-color3);
+}
+#facebook:hover{
+    color: rgb(66, 103, 178);
+}
+#twitter:hover{
+    color:rgb(29, 161, 242);
+}
+#instagram:hover{
+    color:rgb(29, 161, 242);
+}
+ footer{
+     min-height: 15vh;
+     padding: 0 !important;
+     background: radial-gradient(circle at 50.4% 50.5%, var(--main-color2) 0%, var(--main-color1) 90%);
+ }
+ p.col-8.col-lg-3{
+    margin-bottom: 0 !important;
+    color: var(--header-color);
+}
+.bi-facebook, .bi-instagram, .bi-twitter{
+    color:white;
+}
+.cuenta, .loan{
+    text-decoration: none;
+    color: var(--main-color1);
+}
+.cuenta:hover{
+    background: var(--main-color1);
+    color:var(--header-color);
+    border-radius: 4px;
+}
+.nav-item a{
+    color: var(--main-color1);
+}
+.accordion-button{
+    box-shadow: none !important;
+}
+.accordion-button::after{
+    fill: var(--main-color1) !important;
+}
+/* STYLE ACCOUNT */
+.credito, .balance{
+    color: rgb(53, 206, 53) !important;
+}
+.balanceTable{
+    color: rgb(31, 31, 233);
+}
+.debito{
+    color: rgb(255, 0, 0);
+}
+.table-dolar>thead{
+    background: rgb(247, 245, 245);
+}
+.carousel-item{
+    height: 300px;
+}
+.carousel-item img{
+    height: 300px;
+}
+.carousel-caption.f1, .carousel-caption.f2, .carousel-caption.f3{
+    background: rgba(255, 255, 255, 0.692);
+    width: 25rem;
+    height: 8rem;
+    border-radius: 3px;
+}
+.carousel-caption.f1, .carousel-caption.f3{
+    position: absolute;
+    top: .5rem;
+    display: flex;
+    justify-content:space-around;
+    align-items:flex-start;
+    flex-direction: column;
+}
+.carousel-caption.f1{
+    left: 1rem;
+    align-items: center;
+}
+.carousel-caption.f2{
+    left: 22rem;
+}
+.carousel-caption.f3{
+    left: 37rem;
+}
+.carousel-caption p{
+    color: #222;
+}
+.carousel-caption a{
+    background: var(--main-color1) ;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+/*created cards form*/
+.containerFormCard{
+    width: 360px;
+    height: 320px;
+    margin: 3% auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 6px -1px rgba(0, 0, 0, 0.651);
+    position: relative;
+    overflow: hidden; 
+}
+.containerFormCard form{
+    width: 280px;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    padding: 0 !important;
+    transition: 0.5s;
+}
+
+#formCard2 button, #formCard1 button{
+    width: 110px;
+    height: 35px;
+    margin: 0 10px 0;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+#formCard1 button{
+    margin-top: 27px !important;
+}
+#formCard1 button:hover, #formCard2 button:hover{
+    background: linear-gradient(to right, #ff1060c7, #ffac06bb);
+    transform: scale(1.1);
+}
+
+.step-col-card{
+    width: 180px;
+    text-align: center !important;
+    color: #333;
+    position: relative;
+    transition: 1s;
+}
+#step-col-card{
+    color: #fff;
+}
+#progressCard{
+    position: absolute;
+    height: 100%;
+    width: 180px;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    transition: 1s;
+}
+#progressCard::after{
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ffad06;
+}
+#formCard2{
+    left: 450px;
+} 
+#solicitar{
+    border: 2px solid rgb(153, 150, 150);
+    border-radius: 15px;
+}
+.btn-outline-suc{
+    width: 110px !important;
+    font-weight: bold;
+    color: #c2a34fe7 !important;
+    border: 2px solid #c2a34fe7 !important;
+    box-shadow: none !important;
+    transition: 1s all ease;
+    overflow: hidden;
+}
+#success-outlined:checked ~ .btn-outline-suc {
+    color: white !important;
+    background: #c2a34fe7 !important;
+}
+
+.btn-outline-suc:hover{
+    color: white !important;
+    background: #c2a34fe7 !important;
+}
+.btn-outline-dang{
+    width: 110px !important;
+    font-weight: bold;
+    color: rgb(153, 150, 150) !important;
+    border: 2px solid rgb(173, 173, 173) !important;
+    box-shadow: none !important;
+    transition: 1s all ease;
+    overflow: hidden;
+}
+#success-outlined-2:checked ~ .btn-outline-dang  {
+    color: white !important;
+    background: rgb(173, 173, 173) !important;
+}
+.btn-outline-dang:hover{
+    color: white !important;
+    background: rgb(173, 173, 173) !important;
+}
+.btn-outline-da{
+    width: 110px !important;
+    font-weight: bold;
+    color: rgba(68, 68, 68, 0.925) !important;
+    border: 2px solid rgba(68, 68, 68, 0.925) !important;
+    box-shadow: none !important;
+    transition: 1s all ease;
+    overflow: hidden;
+}
+.btn-outline-da:hover{
+    color: white !important;
+    background: rgba(68, 68, 68, 0.925) !important;
+}
+#success-outlined-3:checked ~ .btn-outline-da  {
+    color: white !important;
+    background: rgba(68, 68, 68, 0.925) !important;
+}
+/*transfers*/
+.containerForm{
+    width: 360px;
+    height: 300px;
+    margin: 3% auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 6px -1px rgba(0, 0, 0, 0.651);
+    position: relative;
+    overflow: hidden;
+}
+.selectTransfer{
+    border: 0 !important;
+}
+.formTitle{
+    margin-bottom: 20px;
+    color: #777;
+}
+.containerForm form{
+    width: 280px;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    padding: 0 !important;
+    transition: 0.5s;
+}
+.btn-box{
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+#form1 button,#form2 button, #form3 button, #form4 button, #form5 button, #form6 button {
+    width: 110px;
+    height: 35px;
+    margin: 20px 10px 0;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+#form2 button {
+    margin: 0 10px !important;
+   
+}
+#form1 button:hover, #form2 button:hover, #form3 button:hover, #form4 button:hover, 
+#form5 button:hover, #form6 button:hover{
+    background: linear-gradient(to right, #ff1060c7, #ffac06bb);
+    transform: scale(1.1);
+}
+#form2, #form3, #form4, #form5, #form6{
+    left: 450px;
+} 
+.btn-outline-form1, .btn-outline-form2 {
+    width: 110px !important;
+    font-weight: bold;
+    color: var(--main-color1) !important;
+    box-shadow: none !important;
+    overflow: hidden;
+    outline: 2px solid var(--main-color1) !important;
+}
+.btn-outline-form1:hover{
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    outline:none !important;
+    color: #fff !important;
+}
+#same:checked ~ .btn-outline-form1{
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    outline:none !important;
+    color: #fff !important;
+}
+.btn-outline-form2:hover{
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    outline:none !important;
+    color: #fff !important;
+}
+#other:checked ~ .btn-outline-form2{
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    outline:none !important;
+    color: #fff !important;
+}
+#form4 #inputAccount, #form5 #inputAccount2, #form6 #inputAccount3{
+    width: 100%;
+    padding: 5px 5px;
+    margin: 3px 0;
+    border: 0 !important;
+    border-bottom: 1px solid #999 !important;
+    outline: none !important;
+    background: transparent !important;
+}
+.step-row{
+    width: 100%;
+    height: 40px;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: flex;
+    align-items: center;
+    border: none !important;
+    box-shadow: 0 -1px 5px -1px #000;
+    position: relative;
+}
+.step-col{
+    width: 72px;
+    text-align: center !important;
+    color: #333;
+    position: relative;
+    transition: 1s;
+}
+#step-col1{
+    color: #fff;
+}
+#progress{
+    position: absolute;
+    height: 100%;
+    width: 65px;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    transition: 1s;
+}
+#progress::after{
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ffad06;
+}
+/*Form loans*/
+.containerFormLoan{
+    width: 360px;
+    height: 330px;
+    margin: 3% auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 6px -1px rgba(0, 0, 0, 0.651);
+    position: relative;
+    overflow: hidden; 
+}
+.containerFormLoan form{
+    width: 280px;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    padding: 0 !important;
+    transition: 0.5s;
+}
+#formLoan1 button, #formLoan2 button, #formLoan3 button {
+    width: 110px;
+    height: 35px;
+    margin: 20px 10px 0;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+#selectLoan{
+    margin-top: 1rem;
+}
+
+#formLoan1 .btn-box{
+    margin: 7.5rem auto !important;
+}
+.loanApp:hover{
+    background: var(--main-color1) !important;
+    color: #fff;
+}
+.loanCreated:checked ~ .loanApp{
+    background: var(--main-color1) !important;
+    color: #fff !important;
+}
+#formLoan2, #formLoan3{
+    width: 280px;
+    position: absolute;
+    top: 50px;
+    left: 450px;
+    padding: 0 !important;
+    transition: 0.5s;
+}
+#formLoan2 .btn-box{
+    margin: 8px auto !important;
+}
+.step-col-loan{
+    width: 120px;
+    text-align: center !important;
+    color: #333;
+    position: relative;
+    transition: 1s;
+}
+#step-col-loan{
+    color: #fff;
+}
+#progressLoan{
+    position: absolute;
+    height: 100%;
+    width: 120px;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    transition: 1s;
+}
+#progressLoan::after{
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ffad06;
+}
+.selectTransfer{
+    background: rgb(247, 245, 245) !important;
+}
+#formLoan3 .btn-box{
+    margin: 102px auto !important;
+}
+.btnLoans{
+    background: #fff !important;
+    min-width: 3rem;
+    border: 1px #777 solid;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--main-color1);
+    font-weight: bold;
+}
+.btnLoans:hover{
+    background: var(--main-color1) !important;
+    color: #fff;
+}
+img.ui_w{
+    bottom: 0 !important;
+}
+/*spinner*/
+.spinnerContainer{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100vh;
+    background: rgb(247, 245, 245);
+    z-index: 10;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+}
+.w-95{
+    min-width: 80vw !important;
+    max-width: 80vw !important;
+}
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+  }
+  
+  .sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: var(--main-color1);
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+  }
+  .sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+  .sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+  .sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s; }
+  .sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+  .sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+  .sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+  .sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s; }
+  .sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+  .sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+  
+  @-webkit-keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+      -webkit-transform: scale3D(1, 1, 1);
+              transform: scale3D(1, 1, 1);
+    } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+              transform: scale3D(0, 0, 1); 
+    }
+  }
+  
+  @keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+      -webkit-transform: scale3D(1, 1, 1);
+              transform: scale3D(1, 1, 1);
+    } 35% {
+      -webkit-transform: scale3D(0, 0, 1);
+              transform: scale3D(0, 0, 1);
+    } 
+  }
+  #btnAhorro #btnCorriente{
+   transition: .5s ;
+  
+}
+#btnAhorro:hover{
+background: var(--main-color1);
+color: #fff;
+}
+#btnCorriente:hover{
+    background: var(--main-color1);
+    color: #fff;
+}
+#ahorro:checked ~ #btnAhorro{
+    background: var(--main-color1);
+    color: #fff;
+    box-shadow: none !important;
+}
+#corriente:checked ~ #btnCorriente{
+    background: var(--main-color1);
+    color: #fff;
+    box-shadow: none !important;
+}
+.creatAccount{
+    background: var(--main-color1) !important;
+}
+/*Btn account pdf*/
+#pdfT, .btnPdfT{
+    border: 1px solid black !important;
+    color: var(--main-color1) !important;
+    background: #fff !important;
+    border-radius: 5px !important;
+    font-weight: 600 !important;
+}
+#pdfT:hover{
+    transform: scale(1.12);
+    background: var(--main-color1) !important;
+    color: #fff !important;
+    border: none !important;
+}
+.btnPdfT:hover{
+    background: var(--main-color1) !important;
+    color: #fff !important;
+    
+}

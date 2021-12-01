@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="stylesheet" href="./Styles/cards.css">
+    <link rel="shortcut icon" href="./assets/bank_logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/d55f8f06fd.js" crossorigin="anonymous"></script>
+    <title>Tarjetas MBB</title>
+</head>
+
+<body>
+    <div id="app">
+         <!-- spinner -->
+         <div ref="spinner" class="spinnerContainer">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+              </div>
+        </div>
+        <div id="body" ref="body">
+        <header class="navbar sticky-top row col-12 justify-content-between m-0 p-0 shadow">
+            <a id="minhub" class="navbar-brand row col-md-6 p-0 pe-0  me-0 px-3 align-items-center" href="./accounts.html">
+                <img class="d-none d-md-block col-3 ms-3 my-2" style="height: 3rem; width: 4rem;"
+                    src="./assets/bank_logo.png" alt="">
+                <p class="col-12 text-center text-md-start col-md-9 my-0 pe-0"> Mindhub Brothers Banks</p>
+            </a>
+            <div
+                class="container m-0 col-12 col-md-4 col-lg-2 p-0 justify-content-between align-items-center align-items-md-center">
+                <div class="dropdown col-4 col-lg-5 ">
+                    <a class="d-block link-dark text-decoration-none text-center dropdown-toggle" href="#"
+                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/80934398-ilustración-de-imagen-de-perfil-mujer-vector.jpg" alt="mdo"
+                            width="32" height="32" class="rounded-circle">
+                    </a>
+
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                        <li class="text-center">{{firstName}} {{lastName}}</li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Atención al cliente</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" @click="logOut" href="#">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-nav text-center col-4 col-lg-6 pt-3 pt-md-0">
+                    <div id="salirBtn" class="nav-item mb-2 mb-md-3 text-nowrap me-2 mt-md-3">
+                        <a id="salir" class="nav-link px-2 py-1" @click="logOut" href="#">Salir <i
+                                class="bi bi-box-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+            <button class="navbar-toggler navbar-dark my-3 col-3 mx-1 d-md-none collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </header>
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center ">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link ms-2  mb-3" aria-current="page" href="./accounts.html">
+                                    <i class="bi bi-currency-exchange"></i>
+                                    Cuentas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active ms-2 shadow mb-3" aria-current="page" href="#">
+                                    <i class="bi bi-credit-card-fill"></i>
+                                    Tarjetas
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 row justify-content-center col-lg-10 px-0">
+                    <div
+                        class="d-flex  flex-wrap flex-md-nowrap col-11 justify-content-center align-items-center px-0 pt-3 pb-2 mb-3 border-bottom">
+                        <h4 class="h2" v-cloak>{{firstName}}, {{lastName}}</h4>
+                    </div>
+                    <div class="col-12 mb-3 text-center">
+                        <a href="./create-cards.html" class="btn col-7 col-md-4 col-lg-3 col-xl-2 addAccount"
+                            v-if="6 > cards.length">Solicitar Tarjeta</a>
+                    </div>
+
+                    <div class="accordion col-11 ms-0 px-0 pe-lg-3 ms-md-0 px-md-0 col-md-8 col-lg-5 pb-5"
+                        id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    Tarjetas de Debito
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingOne" v-cloak>
+                                <div v-if="debitCards.length > 0">
+                                    <div class="accordion-body px-0 pb-0" v-for="card in debitCards">
+                                        <div class="card  mb-3 ">
+                                            <div class="card-front animate__animated animate__fadeInDown animate__slow">
+                                                <div class=" card-body row p-0 justify-content-center">
+                                                    <div class="card-group p-0">
+                                                        <div
+                                                            :class="card.color == 'GOLD' ? 'card-gold': card.color == 'SILVER'? 'card-silver' : 'card-titanium'">
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'color-gold': card.color == 'SILVER'? 'color-silver' : 'color-titanium'">
+                                                                {{card.color}}</div>
+                                                            <div class="logo"><img src="./assets/bank_logo.png"
+                                                                    alt="MBB">
+                                                            </div>
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'chip-gold': card.color == 'SILVER'? 'chip-silver' : 'chip-titanium'">
+                                                                <svg version="1.1" id="Layer_1"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                                    y="0px" viewBox="0 0 32 32"
+                                                                    style="enable-background:new 0 0 32 32;"
+                                                                    xml:space="preserve">
+                                                                    <path :id="'chip--debit_'+card.id+'_'"
+                                                                        d="M28,30.426H4c-1.337,0-2.425-1.089-2.425-2.426V4c0-1.337,1.088-2.425,2.425-2.425h24
+                                                           c1.337,0,2.426,1.088,2.426,2.425v24C30.426,29.337,29.337,30.426,28,30.426z M16.425,29.574H28c0.868,0,1.574-0.706,1.574-1.574
+                                                           v-2.574H25c-0.113,0-0.221-0.045-0.301-0.125l-3.875-3.875h-4.399V29.574z M2.425,25.426V28c0,0.868,0.707,1.574,1.575,1.574h11.575
+                                                           v-8.148h-4.398l-3.875,3.875c-0.08,0.08-0.188,0.125-0.301,0.125C7.001,25.426,2.425,25.426,2.425,25.426z M25.176,24.574h4.398
+                                                           v-8.149h-8.148v4.399L25.176,24.574z M2.425,24.574h4.398l3.751-3.75v-4.399H2.425V24.574z M11.425,20.574h9.149v-9.149h-9.149
+                                                           C11.425,11.425,11.425,20.574,11.425,20.574z M21.426,15.575h8.148v-8.15h-4.398l-3.75,3.751
+                                                           C21.426,11.176,21.426,15.575,21.426,15.575z M2.425,15.575h8.149v-4.398l-3.75-3.752H2.425V15.575z M16.425,10.575h4.399
+                                                           L24.699,6.7c0.08-0.08,0.188-0.125,0.301-0.125h4.574V4c0-0.868-0.706-1.575-1.574-1.575H16.425V10.575z M11.176,10.575h4.398v-8.15
+                                                           H4C3.132,2.425,2.425,3.132,2.425,4v2.575H7c0.113,0,0.221,0.044,0.301,0.125L11.176,10.575z" />
+                                                                    <rect :id="'_Transparent_Rectangle'+card.id"
+                                                                        style="fill:none;" width="32" height="32" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="contacless"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    version="1.1"
+                                                                    :id="'mdi-contactless-payment'+card.id" width="30"
+                                                                    height="30" viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M16.79,23C16.37,22.83 16.07,22.45 16,22C15.95,21.74 16,21.56 16.4,20.84C17.9,18.14 18.67,15.09 18.63,12C18.67,9 17.94,6.07 16.5,3.44C16.29,3 16.1,2.58 15.94,2.13C16,1.75 16.19,1.4 16.5,1.19C16.95,0.95 17.5,1 17.91,1.28C18.19,1.64 18.43,2 18.63,2.42C19.71,4.5 20.44,6.7 20.8,9C21.03,10.81 21.06,12.65 20.89,14.47C20.58,16.81 19.89,19.07 18.83,21.18C18.19,22.46 17.83,23 17.45,23C17.37,23 17.28,23 17.2,23C17.06,23 16.93,23 16.79,23V23M12.43,20.79C11.86,20.63 11.5,20.05 11.62,19.47C11.62,19.35 11.93,18.8 12.21,18.24C13.39,15.97 13.9,13.41 13.67,10.86C13.53,9.03 13,7.25 12.13,5.64C11.5,4.38 11.46,4.18 11.83,3.64C12.27,3.15 13,3.08 13.54,3.5C14.26,4.56 14.83,5.72 15.25,6.94C16.53,10.73 16.33,14.86 14.69,18.5C13.85,20.39 13.26,21 12.43,20.74V20.79M7.93,18.56C7.57,18.4 7.3,18.08 7.2,17.7C7.2,17.5 7.2,17.24 7.65,16.44C9.14,13.74 9.14,10.46 7.65,7.76C7,6.5 7,6.24 7.53,5.76C7.72,5.54 8,5.43 8.3,5.47C8.94,5.47 9.3,5.78 9.84,6.91C10.69,8.47 11.13,10.22 11.12,12C11.16,13.81 10.72,15.61 9.85,17.2C9.31,18.25 9.04,18.5 8.5,18.59C8.31,18.61 8.11,18.59 7.93,18.5V18.56M3.72,16.43C3.39,16.27 3.13,16 3,15.65C2.9,15.3 3,15 3.4,14.36C3.9,13.68 4.14,12.84 4.09,12C4.16,11.15 3.93,10.31 3.44,9.61C3.27,9.36 3.13,9.09 3,8.82C2.89,8.19 3.31,7.59 4,7.47C4.54,7.37 4.92,7.6 5.42,8.36C6.87,10.57 6.87,13.42 5.42,15.63C4.91,16.4 4.33,16.63 3.73,16.43H3.72Z" />
+                                                                </svg></div>
+                                                            <div class="number">
+                                                                {{card.number.slice(0,4)}} {{card.number.slice(5,9)}}
+                                                                {{card.number.slice(10,14)}}
+                                                                {{card.number.slice(15,19)}}
+                                                            </div>
+                                                            <div class="name">{{toUpperCase(card.cardHolder)}}</div>
+                                                            <div class="form1">Desde</div>
+                                                            <div class="form">{{sliceDate(card.fromDate)}}</div>
+                                                            <div class="to1">Hasta</div>
+                                                            <div class="to">{{sliceDate(card.thruDate)}}</div>
+                                                            <div class="type"><img src="./assets/logo-visa.png"
+                                                                    alt="logo-visa">
+                                                            </div>
+                                                            <div class="type1">{{card.type}}</div>
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'ring-gold': card.color == 'SILVER'? 'ring-silver' : 'ring-titanium'">
+                                                            </div>
+                                                            <div class="expired" v-if="expiredCard(card.thruDate)">
+                                                                <img src="./assets/expired.png" alt="expired">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-back">
+                                                <div class=" card-body row p-0 justify-content-center">
+                                                    <div class="card-group p-0">
+                                                        <div
+                                                            :class="card.color == 'GOLD' ? 'card-gold': card.color == 'SILVER'? 'card-silver' : 'card-titanium'">
+                                                            <p class="text-back">Centro de servicio visa (011)
+                                                                4345-2400. Call Collect desde el exterior (54-11)
+                                                                4379-3434</p>
+                                                            <div class="bar">
+                                                            </div>
+                                                            <p class="sign">FIRMA AUTORIZADA - NO VALIDO SIN FIRMA</p>
+                                                            <div class="cvv">
+                                                                <img src="./assets/pattern.png" alt="">
+                                                                <p>{{card.cvv}}</p>
+                                                            </div>
+                                                            <p class="text-down">De hallarse esta tarjeta, se agradecera
+                                                                devolverla a Prisma Medios de Pagos S.A., Lavardén 247
+                                                                (1437)
+                                                                Buenos Aires, Argentina Tel.(011) 4379-3333 o al Banco
+                                                                representante de Visa más cercano
+                                                            </p>
+                                                            <div class="logo-back"><img src="./assets/bank_logo.png"
+                                                                    alt="MBB">
+                                                            </div>
+                                                            <p class="web">www.mbb.com.ar</p>
+                                                            <div class="type-back"><img src="./assets/visa.png"
+                                                                    alt="logo-visa">
+                                                            </div>
+
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'ring-gold': card.color == 'SILVER'? 'ring-silver' : 'ring-titanium'">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <a href="#" :id="'opcCuentas'+card.id"
+                                                class="opcCuentas btn col-12 col-md-5  p-0 py-1 dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">Opciones de tarjeta</a>
+                                            <ul class="dropdown-menu" :aria-labelledby="'opcCuentas'+card.id">
+                                                <li><a class="dropdown-item" href="#">Pagar</a></li>
+                                                <li><a class="dropdown-item" href="#">Ver ultimos movimientos</a></li>
+                                                <li><a class="dropdown-item" data-bs-toggle="modal"
+                                                    :data-bs-target="'#staticBackdrop'+card.id">Dar de
+                                                        baja</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" :id="'staticBackdrop'+card.id" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header justify-content-center">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">CONFIRMAR BAJA
+                                                            DE PRODUCTO
+                                                        </h5>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <p>Debe comfirmar la operación para proceder con la baja del
+                                                            producto.</p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-bs-toggle="modal"
+                                                            @click="deleteCard(card.id)">Confirmar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-else>
+                                    <div class="accordion-body px-0">
+                                        <p class="ps-3">Actualmente no tiene tarjeta de debito.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion col-11 ms-0 px-0 ms-md-0 px-md-0 col-md-8 col-lg-5 pb-5"
+                        id="accordionPanelsStayOpenExample-1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne-1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne-n" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    Tarjetas de Credito
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne-n" class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingOne" v-cloak>
+                                <div v-if="creditCards.length > 0">
+                                    <div class="accordion-body px-0 pb-0" v-for="card in creditCards">
+                                        <div class="card  mb-3">
+                                            <div class="card-front animate__animated animate__fadeInDown animate__slow">
+                                                <div class=" card-body row p-0 justify-content-center">
+                                                    <div class="card-group p-0">
+                                                        <div
+                                                            :class="card.color == 'GOLD' ? 'card-gold': card.color == 'SILVER' ? 'card-silver' : 'card-titanium'">
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'color-gold': card.color == 'SILVER'? 'color-silver' : 'color-titanium'">
+                                                                {{card.color}}</div>
+                                                            <div class="logo"><img src="./assets/bank_logo.png"
+                                                                    alt="MBB">
+                                                            </div>
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'chip-gold': card.color == 'SILVER'? 'chip-silver' : 'chip-titanium'">
+                                                                <svg version="1.1" :id="'Layer_'+ card.id"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                                    y="0px" viewBox="0 0 32 32"
+                                                                    style="enable-background:new 0 0 32 32;"
+                                                                    xml:space="preserve">
+                                                                    <path :id="'chip--debit_'+card.id+'_'"
+                                                                        d="M28,30.426H4c-1.337,0-2.425-1.089-2.425-2.426V4c0-1.337,1.088-2.425,2.425-2.425h24
+                                                               c1.337,0,2.426,1.088,2.426,2.425v24C30.426,29.337,29.337,30.426,28,30.426z M16.425,29.574H28c0.868,0,1.574-0.706,1.574-1.574
+                                                               v-2.574H25c-0.113,0-0.221-0.045-0.301-0.125l-3.875-3.875h-4.399V29.574z M2.425,25.426V28c0,0.868,0.707,1.574,1.575,1.574h11.575
+                                                               v-8.148h-4.398l-3.875,3.875c-0.08,0.08-0.188,0.125-0.301,0.125C7.001,25.426,2.425,25.426,2.425,25.426z M25.176,24.574h4.398
+                                                               v-8.149h-8.148v4.399L25.176,24.574z M2.425,24.574h4.398l3.751-3.75v-4.399H2.425V24.574z M11.425,20.574h9.149v-9.149h-9.149
+                                                               C11.425,11.425,11.425,20.574,11.425,20.574z M21.426,15.575h8.148v-8.15h-4.398l-3.75,3.751
+                                                               C21.426,11.176,21.426,15.575,21.426,15.575z M2.425,15.575h8.149v-4.398l-3.75-3.752H2.425V15.575z M16.425,10.575h4.399
+                                                               L24.699,6.7c0.08-0.08,0.188-0.125,0.301-0.125h4.574V4c0-0.868-0.706-1.575-1.574-1.575H16.425V10.575z M11.176,10.575h4.398v-8.15
+                                                               H4C3.132,2.425,2.425,3.132,2.425,4v2.575H7c0.113,0,0.221,0.044,0.301,0.125L11.176,10.575z" />
+                                                                    <rect :id="'_Transparent_Rectangle'+card.id"
+                                                                        style="fill:none;" width="32" height="32" />
+                                                                </svg>
+                                                            </div>
+                                                            <div class="contacless"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    version="1.1"
+                                                                    :id="'mdi-contactless-payment'+card.id" width="30"
+                                                                    height="30" viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M16.79,23C16.37,22.83 16.07,22.45 16,22C15.95,21.74 16,21.56 16.4,20.84C17.9,18.14 18.67,15.09 18.63,12C18.67,9 17.94,6.07 16.5,3.44C16.29,3 16.1,2.58 15.94,2.13C16,1.75 16.19,1.4 16.5,1.19C16.95,0.95 17.5,1 17.91,1.28C18.19,1.64 18.43,2 18.63,2.42C19.71,4.5 20.44,6.7 20.8,9C21.03,10.81 21.06,12.65 20.89,14.47C20.58,16.81 19.89,19.07 18.83,21.18C18.19,22.46 17.83,23 17.45,23C17.37,23 17.28,23 17.2,23C17.06,23 16.93,23 16.79,23V23M12.43,20.79C11.86,20.63 11.5,20.05 11.62,19.47C11.62,19.35 11.93,18.8 12.21,18.24C13.39,15.97 13.9,13.41 13.67,10.86C13.53,9.03 13,7.25 12.13,5.64C11.5,4.38 11.46,4.18 11.83,3.64C12.27,3.15 13,3.08 13.54,3.5C14.26,4.56 14.83,5.72 15.25,6.94C16.53,10.73 16.33,14.86 14.69,18.5C13.85,20.39 13.26,21 12.43,20.74V20.79M7.93,18.56C7.57,18.4 7.3,18.08 7.2,17.7C7.2,17.5 7.2,17.24 7.65,16.44C9.14,13.74 9.14,10.46 7.65,7.76C7,6.5 7,6.24 7.53,5.76C7.72,5.54 8,5.43 8.3,5.47C8.94,5.47 9.3,5.78 9.84,6.91C10.69,8.47 11.13,10.22 11.12,12C11.16,13.81 10.72,15.61 9.85,17.2C9.31,18.25 9.04,18.5 8.5,18.59C8.31,18.61 8.11,18.59 7.93,18.5V18.56M3.72,16.43C3.39,16.27 3.13,16 3,15.65C2.9,15.3 3,15 3.4,14.36C3.9,13.68 4.14,12.84 4.09,12C4.16,11.15 3.93,10.31 3.44,9.61C3.27,9.36 3.13,9.09 3,8.82C2.89,8.19 3.31,7.59 4,7.47C4.54,7.37 4.92,7.6 5.42,8.36C6.87,10.57 6.87,13.42 5.42,15.63C4.91,16.4 4.33,16.63 3.73,16.43H3.72Z" />
+                                                                </svg></div>
+                                                            <div class="number">
+                                                                {{card.number.slice(0,4)}} {{card.number.slice(5,9)}}
+                                                                {{card.number.slice(10,14)}}
+                                                                {{card.number.slice(15,19)}}
+                                                            </div>
+                                                            <div class="name">{{toUpperCase(card.cardHolder)}}</div>
+                                                            <div class="form1">Desde</div>
+                                                            <div class="form">{{sliceDate(card.fromDate)}}</div>
+                                                            <div class="to1">Hasta</div>
+                                                            <div class="to">{{sliceDate(card.thruDate)}}</div>
+                                                            <div class="type"><img src="./assets/logo-visa.png"
+                                                                    alt="logo-visa">
+                                                            </div>
+                                                            <div class="type1">{{card.type}}</div>
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'ring-gold': card.color == 'SILVER'? 'ring-silver' : 'ring-titanium'">
+                                                            </div>
+                                                            <div class="expired" v-if="expiredCard(card.thruDate)">
+                                                                <img src="./assets/expired.png" alt="expired">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-back">
+                                                <div class=" card-body row p-0 justify-content-center">
+                                                    <div class="card-group p-0">
+                                                        <div
+                                                            :class="card.color == 'GOLD' ? 'card-gold': card.color == 'SILVER'? 'card-silver' : 'card-titanium'">
+                                                            <p class="text-back">Centro de servicio visa (011)
+                                                                4345-2400. Call Collect desde el exterior (54-11)
+                                                                4379-3434</p>
+                                                            <div class="bar">
+                                                            </div>
+                                                            <p class="sign">FIRMA AUTORIZADA - NO VALIDO SIN FIRMA</p>
+                                                            <div class="cvv">
+                                                                <img src="./assets/pattern.png" alt="">
+                                                                <p>{{card.cvv}}</p>
+                                                            </div>
+                                                            <p class="text-down">De hallarse esta tarjeta, se agradecera
+                                                                devolverla a Prisma Medios de Pagos S.A., Lavardén 247
+                                                                (1437)
+                                                                Buenos Aires, Argentina Tel.(011) 4379-3333 o al Banco
+                                                                representante de Visa más cercano
+                                                            </p>
+                                                            <div class="logo-back"><img src="./assets/bank_logo.png"
+                                                                    alt="MBB">
+                                                            </div>
+                                                            <p class="web">www.mbb.com.ar</p>
+                                                            <div class="type-back"><img src="./assets/visa.png"
+                                                                    alt="logo-visa">
+                                                            </div>
+
+                                                            <div
+                                                                :class="card.color == 'GOLD' ? 'ring-gold': card.color == 'SILVER'? 'ring-silver' : 'ring-titanium'">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <a href="#" :id="'opcCuentas'+card.id"
+                                                class="opcCuentas btn col-12 col-md-5  p-0 py-1 dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">Opciones de tarjeta</a>
+                                            <ul class="dropdown-menu" :aria-labelledby="'opcCuentas'+card.id">
+                                                <li><a class="dropdown-item" href="#">Pagar</a></li>
+                                                <li><a class="dropdown-item" href="#">Ver ultimos movimientos</a></li>
+                                                <li><a class="dropdown-item" data-bs-toggle="modal"
+                                                        :data-bs-target="'#staticBackdrop'+card.id">Dar de baja</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" :id="'staticBackdrop'+card.id" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header justify-content-center">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">CONFIRMAR BAJA
+                                                            DE PRODUCTO
+                                                        </h5>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <p>Debe comfirmar la operación para proceder con la baja del
+                                                            producto.</p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                        <button type="button" class="btn btn-primary btnConfirm"
+                                                            data-bs-toggle="modal"
+                                                            @click="deleteCard(card.id)">Confirmar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-else>
+                                    <div class="accordion-body px-0">
+                                        <p class="ps-3">Actualmente no tiene tarjeta de credito.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                
+
+                <footer
+                    class="container row mx-auto align-self-end justify-content-center justify-content-md-between align-items-center">
+                    <p class="col-8 col-md-5 col-lg-3 text-center p-0">&copy; Minhub Brothers Bank</p>
+                    <div id="menuFooter" class="col-4 row mx-0 pe-0 justify-content-md-center">
+                        <a href="http://www.facebook.com/" class="col-3 col-md-2 p-0 " target="_blank"
+                            rel="noopener noreferrer"><i id="facebook" class="bi bi-facebook facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=es" class="col-3 col-md-2 p-0" target="_blank"
+                            rel="noopener noreferrer"><i id="instagram" class="bi bi-instagram"></i></a>
+                        <a href="https://twitter.com/?lang=es" class="col-3 col-md-2 p-0" target="_blank"
+                            rel="noopener noreferrer"><i id="twitter" class="bi bi-twitter"></i></a>
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+    <script src="./Scripts/cards.js"></script>
+
+</body>
+
+</html>

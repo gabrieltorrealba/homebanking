@@ -1,0 +1,331 @@
+[v-cloak]{
+    display: none;
+    }
+.card{
+    border: none !important;
+    transition: all 1s;
+    transform-style: preserve-3d;
+}
+#body{
+    display: none;
+}
+.card-group{
+height: 160px;
+width: 280px;
+}
+.card-front{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.card-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.card-back{
+    transform: rotateY(-180deg);
+} 
+.card:hover {
+    transform: rotateY(-180deg);
+}
+.card-gold, .card-titanium, .card-silver{
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    font-family: "Josefin Sans", sans-serif;
+    backdrop-filter: blur(30px);
+}
+.card-gold{
+    background: linear-gradient(#C2A34F, #eed07f) ;
+    background-color: linear-gradient(#ff0e6c, #ff6b31);
+    border: 2px solid #c2a34f65;
+    box-shadow: 0 0 20px rgb(255 100 54 / 77%);
+} 
+.card-titanium{
+    background: linear-gradient(rgb(68, 68, 68), rgb(182, 182, 182)) ;
+    background-color: linear-gradient(rgb(25, 25, 129), rgb(66, 66, 214));
+    border: 2px solid rgba(68, 68, 68, 0.493);
+    box-shadow: 0 0 20px rgba(141, 141, 235, 0.801);
+}
+.card-silver{
+    background: linear-gradient(rgb(190, 189, 189), rgb(236, 236, 236)) ;
+    background-color: linear-gradient(rgb(25, 25, 129), rgb(66, 66, 214));
+    border: 2px solid rgb(173, 173, 173);
+    box-shadow: 0 0 20px rgba(136, 202, 211, 0.801);
+}
+
+.logo img, .logo-back img, .chip-gold svg, .chip-titanium svg, .chip-silver svg,.contacless, 
+.number, .name, .form, .form1, .to, .to1, .color-gold, .color-titanium, .color-silver,
+ .type1, .type img, .type-back img, .ring-gold, .ring-titanium, .ring-silver, .bar, .text-back, 
+ .cvv img, .cvv p, .sign, .text-down, .web{
+    position: absolute;
+}
+.logo img{
+    top: 5%;
+    right: 5%;
+    height: auto;
+    width: 40px;
+    opacity: 0.6;
+}
+.logo-back img{
+    bottom: 2%;
+    left: 2%;
+    height: auto;
+    width: 30px;
+    opacity: 0.6;
+}
+.chip-gold svg{
+    top: 26%;
+    left: 35.2px;
+    height: auto;
+    width: 32px;
+    fill:rgb(92, 92, 92) ;
+    fill-opacity: 0.75;
+}
+.chip-titanium svg{
+    top: 26%;
+    left: 35.2px;
+    height: auto;
+    width: 32px;
+    fill:rgb(255, 248, 248) ;
+    fill-opacity: 0.75;
+}
+.chip-silver svg{
+    top: 26%;
+    left: 35.2px;
+    height: auto;
+    width: 32px;
+    fill:#ca9a14 ;
+    fill-opacity: 0.75;
+}
+.contacless{
+    fill:rgba(235, 231, 231, 0.822);
+    left: 67.2px;
+    top: 27%;
+}
+.type img{
+    width: 40px;
+    height: auto;
+    bottom: 11%;
+    right: 6%;
+}
+.type-back img{
+    width: 40px;
+    height: auto;
+    bottom: 5%;
+    right: 2%;
+    opacity: 0.8;
+}
+.number, .name, .form, .form1, .to, .to1, .type1, .text-back, .sign, .text-down, .web{
+    color: rgba(241, 241, 241, 0.849);
+    font-weight: 400;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.616);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+.name, .form, .form1, .to, .to1, .color, .type1, .web{
+    letter-spacing: 2px;
+}
+.color-gold{
+    font-size: 11.2px;
+    font-weight: 400;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.616);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+    font-style: italic;
+    top: 10%;
+    left: 32px;
+    color: #c2a34fd5;
+}
+.color-titanium{
+    font-size: 11.2px;
+    font-weight: 400;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.616);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+    font-style: italic;
+    top: 10%;
+    left: 32px;
+    color: rgba(182, 182, 182, 0.822);
+}
+.color-silver{
+    font-size: 11.2px;
+    font-weight: 400;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.616);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+    font-style: italic;
+    top: 10%;
+    left: 32px;
+    color: rgb(204, 202, 202);
+}
+.number{
+    left: 27px;
+    top: 53%;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    word-spacing: 4px;
+}
+.name{
+    left: 32px;
+    bottom: 8%;
+    font-size: 12.8px;
+    word-spacing: 8px;
+}
+.form{
+    font-size: 8px;
+    bottom: 20%;
+    left: 64px;
+}
+.form1{
+    font-size: 8px;
+    bottom: 27%;
+    left: 64px;
+}
+.to{
+    font-size: 8px;
+    bottom: 20%;
+    left: 144px;
+}
+.to1{
+    font-size: 8px;
+    bottom: 27%;
+    left: 144px;
+}
+.type1{
+    font-size: 8px;
+    bottom: 4%;
+    right: 5%;
+}
+ .ring-gold{
+    height: 140px;
+    width: 140px;
+     border-radius: 50%; 
+    background: transparent;
+    border: 5px solid #eed07f42;
+    bottom: 18px;
+    right: 40px; 
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.ring-gold::after{
+    content: '';
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    bottom: 23px;
+    right: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 10px solid #eed07f42;
+    z-index: -1;
+} 
+.ring-titanium{
+    height: 140px;
+    width: 140px;
+     border-radius: 50%; 
+    background: transparent;
+    border: 5px solid rgba(136, 134, 134, 0.616);
+    bottom: 18px;
+    right: 40px; 
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: -1;
+}
+.ring-titanium::after{
+    content: '';
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    bottom: 23px;
+    right: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 10px solid rgba(136, 134, 134, 0.616);
+    z-index: -1;
+} 
+.ring-silver{
+    height: 140px;
+    width: 140px;
+     border-radius: 50%; 
+    background: transparent;
+    border: 5px solid rgba(201, 197, 197, 0.596);
+    bottom: 18px;
+    right: 40px; 
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: -1;
+}
+.ring-silver::after{
+    content: '';
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    bottom: 23px;
+    right: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 10px solid rgba(201, 197, 197, 0.596);
+    z-index: -1;
+} 
+.bar{
+    top: 15%;
+    height: 30px;
+    width: 100%;
+    background-color: #222;
+}
+.text-back{
+    font-size: 6px;
+    left: 5%;
+    top: 7%;
+    right: 5%;
+}
+.cvv img{
+    width: 70%;
+    top: 45%;
+    left: 5%;
+}
+.cvv p{
+    background: rgb(255, 254, 254);
+    width: 40px;
+    height: 20px;
+    top: 47%;
+    right: 11%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight:900;
+}
+.sign{
+    top: 37%;
+    left: 9%;
+    font-size: 7px;
+    font-weight: 900;
+}
+.text-down{
+    font-size: 6px;
+    bottom: 7%;
+    left: 15%;
+    right: 15%;
+}
+.web{
+    bottom: -7%;
+    left: 30%;
+    font-size: 7px;
+    font-weight: 900;
+}
+.expired > img{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 10%;
+    left: 11%;
+    z-index: -1;
+}

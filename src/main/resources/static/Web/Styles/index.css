@@ -1,0 +1,163 @@
+:root{
+    --header-color: white;
+    --main-color1: rgba(135, 2, 35, 0.8);
+    --main-color2: rgba(202, 4, 53, 0.76);
+    --main-color3: #e94a6daf;
+    --main-color4: #f788a0;
+    --main-color5: #faf2da9f;
+ }
+ [v-cloak]{
+    display: none;
+    }
+ body{
+    font-family: 'Spartan', sans-serif;
+    background-color: rgb(247, 245, 245);
+ }
+ #login{
+     background: var(--main-color5);
+     min-height: 100vh !important;
+ }
+ #logo{
+     position: relative;
+     top: 20px;
+ }
+ .form-box{
+     width: 85%;
+     min-height: 500px;
+     position: relative;
+     margin: 20px auto;
+     padding: 5px;
+     background: #fff;
+     overflow: hidden;
+     border-radius: 20px;
+     box-shadow: 10px 10px 6px -1px rgba(0, 0, 0, 0.651);
+ }
+ .button-box{
+     width: 250px;
+     margin: 20px auto;
+     position: relative;
+     box-shadow: 0 0 20px 9px #ff61241f;
+     border-radius: 30px;
+ }
+ #btn-index{
+     top: 0;
+     left: 0;
+     position: absolute;
+     width: 125px;
+     height: 100%;
+     background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: .5s;
+ }
+ .toggle-btn{
+    left: 10px;
+    padding: 10px 17px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    transition: .5s;
+}
+#toggle-btn1{
+    color:#fff
+}
+#submitLogin:disabled{
+    background: linear-gradient(to right, #ff10609a, #ffac069a);
+}
+#submitRegister:disabled{
+    background: linear-gradient(to right, #ff10609a, #ffac069a);
+}
+#toggle-btn2{
+    left: 16px;
+    color: black;
+    
+}
+ .input-group{
+     top: 130px;
+     left: auto;
+     right: auto;
+     position: absolute;
+     width: 100%;
+     transition: .5s;
+ }
+ #group2{
+    top: 80px;
+    
+}
+ .input-field{
+     width: 80%;
+     padding: 10px 0;
+     margin: 0 0 40px;
+     border: 0;
+     border-bottom: 1px solid #999;
+     outline: none;
+     background: transparent;
+ }
+ #exampleEmail1{
+     margin-top: 40px !important;
+ }
+ #group2 .input-field{
+     margin: 0 0 20px;
+ }
+ .submit-btn{
+     width: 50%;
+     bottom: 0!important;
+     margin-top: 60px;
+     padding: 10px 0;
+     cursor: pointer;
+     display: block;
+     background: linear-gradient(to right, #ff105f, #ffad06);
+     border-radius: 30px !important;
+     outline: none;
+     border: 0;
+     color: #fff;
+ }
+ #group2 .submit-btn{
+     margin-top: 5px;
+ }
+ #group2{
+     left: -800px;
+ }
+ #mBB{
+     font-size: 1rem;
+     font-weight: bold;
+     color: var(--main-color1);
+ }
+ .btnAccount{
+     width: 80%;
+     display: flex;
+     justify-content: space-around;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+ .btn-outline-suc, .btn-outline-sucs{
+    width: 45% !important;
+    color: rgb(51, 50, 50) !important;
+    box-shadow: none !important;
+    transition: .5s all ease;
+    box-shadow: 0 0 20px 9px #ff61241f !important;
+    border-radius: 30px !important;
+    overflow: hidden;
+}
+.btn-outline-suc:hover{
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    color: #fff !important;
+}
+.btn-outline-sucs:hover{
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    color: #fff !important;
+}
+ .selectAccount{
+     width: 80%;
+ }
+ #success-outlined:checked ~ .btn-outline-suc {
+    color: #fff !important;
+    background: linear-gradient(to right, #ff105f, #ffad06) !important;
+}
+#success-outlined-2:checked ~ .btn-outline-sucs {
+    color: #fff !important;
+    background: linear-gradient(to right, #ff105f, #ffad06) !important;
+}
+
+ 

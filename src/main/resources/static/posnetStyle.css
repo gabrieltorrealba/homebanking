@@ -1,0 +1,122 @@
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;   
+}
+#app{
+    width: 100%;
+    height: 100%;
+    background:  #e6e4e4;
+    overflow: hidden;  
+}
+header{
+    width: 100%;
+    background: #009ee3;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 32%);
+    color: #fff;
+    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    position: fixed;
+    z-index: 60;
+}
+section{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.payments{
+    width: 280px;
+    min-height: 330px;
+    align-self: center; 
+    right: auto;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    background: #fff;
+}
+.MBB{
+    color: rgba(135, 2, 35, 0.8);
+    font-weight: bolder;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.884);
+    border-radius: 10px;
+}
+.formPayments{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.formPayments > #cardNumber{
+    position: absolute;
+    top: 10px;
+    left: 20%;
+    border: none;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+.formPayments > .cardFront{
+    position: absolute;
+    font-size: 30px;
+    top: 0px;
+    left: 8%;
+}
+.formPayments > #cardCvv{
+    position: absolute;
+    top: 55px;
+    width: 50px;
+    left: 20%;
+    border: none;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+.formPayments > .cardBack{
+    position: absolute;
+    font-size: 30px;
+    top: 45px;
+    left: 8%;
+    
+}
+.formPayments > #amount{
+    position: absolute;
+    top: 100px;
+    left: 20%;
+    border: none;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+.formPayments > .amount{
+    position: absolute;
+    font-size: 30px;
+    top: 90px;
+    left: 8%;
+}
+.formPayments > #description{
+    position: absolute;
+    top: 150px;
+    left: 20%;
+    border: none;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+.formPayments > .description{
+    position: absolute;
+    font-size: 30px;
+    top: 140px;
+    left: 8%;
+}
+.formPayments > #chart{
+    position: absolute;
+    top: 172px;
+    left: 20%;
+}
+.formPayments > #pay{
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    top: 210px;
+    left: 40%;
+    border-radius: 10px;
+    border: none;
+    background: #009ee3;
+    color: #fff;
+    font-weight: 600;
+}

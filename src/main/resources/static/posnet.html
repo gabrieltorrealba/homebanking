@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="./posnetStyle.css">
+
+    <script src="https://kit.fontawesome.com/d55f8f06fd.js" crossorigin="anonymous"></script>
+    <title>Pago</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Plataforma de pagos</h1>
+        </header>
+        <section>
+
+            <div class="payments">
+                <p class="MBB text-center mt-3 pb-3">MBB pagos</p>
+                <form class="formPayments" action="" @submit.prevent="createdPayment">
+                    <i class="bi bi-credit-card-2-front cardFront"></i><input type="number" name="" id="cardNumber"
+                        placeholder=" Ingrese numero tarjeta" minlength="16" maxlength="16"
+                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength-1);" v-model="cardNumber">
+                    <i class="bi bi-credit-card-2-back cardBack"></i><input type="number" id="cardCvv" placeholder="Cvv"
+                        minlength="3" maxlength="3"
+                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength - 1);" v-model="cvv">
+                    <i class="bi bi-currency-dollar amount"></i><input type="number" id="amount" placeholder="Monto" v-model="amount">
+                    <i class="bi bi-card-text description"></i><input type="text" maxlength="25" id="description"
+                        placeholder="Descripción" v-model="description">
+                    <small id="chart">{{description.length}}/25 caracteres maximo*</small>
+                    <button type="button" id="pay" data-bs-toggle="modal" :disabled="disableBtn" data-bs-target="#staticBackdrop">Pagar</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Confirmar operación</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                   <p>No. tarjeta: {{cardNumber}}</p> 
+                                   <p>Cvv: {{cvv}}</p>
+                                   <p>Monto: {{numberFormat(amount)}}</p>
+                                   <p>Descripción: {{description}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./posnet.js"></script>
+</body>
+
+</html>

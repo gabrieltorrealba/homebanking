@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="shortcut icon" href="./assets/bank_logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/d55f8f06fd.js" crossorigin="anonymous"></script>
+    <title>Cuenta MBB</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- spinner -->
+        <div ref="spinner" class="spinnerContainer">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+            </div>
+        </div>
+        <div id="body" ref="body">
+            <header class="navbar sticky-top row col-12 justify-content-between m-0 p-0 shadow">
+                <a id="minhub" class="navbar-brand row col-md-6 p-0 pe-0  me-0 px-3 align-items-center"
+                    href="./accounts.html">
+                    <img class="d-none d-md-block col-3 ms-3 my-2" style="height: 3rem; width: 4rem;"
+                        src="./assets/bank_logo.png" alt="">
+                    <p class="col-12 text-center text-md-start col-md-9 my-0 pe-0"> Mindhub Brothers Banks</p>
+                </a>
+                <div
+                    class="container m-0 col-12 col-md-4 col-lg-2 p-0 justify-content-between align-items-center align-items-md-center">
+                    <div class="dropdown col-4 col-lg-5 ">
+                        <a class="d-block link-dark text-decoration-none text-center dropdown-toggle" href="#"
+                            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./assets/80934398-ilustración-de-imagen-de-perfil-mujer-vector.jpg" alt="mdo"
+                                width="32" height="32" class="rounded-circle">
+                        </a>
+
+                        <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                            <li class="text-center">{{client.firstName}} {{client.lastName}}</li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Atención al cliente</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" @click="logOut" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                    <div class="navbar-nav text-center col-4 col-lg-6 pt-3 pt-md-0">
+                        <div id="salirBtn" class="nav-item mb-2 mb-md-3 text-nowrap me-2 mt-md-3">
+                            <a id="salir" class="nav-link px-2 py-1" href="#" @click="logOut">Salir <i
+                                    class="bi bi-box-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <button class="navbar-toggler navbar-dark my-3 col-3 mx-1 d-md-none collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </header>
+            <div class="container-fluid">
+                <div class="row d-flex ">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                        <div class="position-sticky pt-3">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active ms-2 shadow  mb-3" aria-current="page"
+                                        href="./accounts.html">
+                                        <i class="bi bi-currency-exchange"></i>
+                                        Cuentas
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  ms-2  mb-3" aria-current="page" href="./cards.html">
+                                        <i class="bi bi-credit-card-fill"></i>
+                                        Tarjetas
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <main id="main" ref="main" class="col-md-9  col-lg-10 px-0" v-cloak>
+                        <div
+                            class="d-flex  flex-wrap flex-md-nowrap justify-content-center align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4 class="h2">{{client.firstName}}, {{client.lastName}}</h4>
+                        </div>
+                        <div class="col-12 col-lg-12 row m-0">
+                            <h5 id="h3Cuentas" class="text-center">Cuenta</h5>
+                            <div class="col-11 col-lg-6  ms-2 ms-md-0 mt-4 mb-2 mb-lg-0 mt-lg-0 pe-0">
+                                <div class="card shadow">
+                                    <p class="card-header  fw-bold">Caja de Ahorro $ No.{{numberAccount}}</p>
+                                    <div class="card-body container-fluid row justify-content-between">
+                                        <div class="col-12 col-md-5 px-0 col-lg-6 ">
+                                            <p class="card-title text-center fs-5">Saldo Disponible</p>
+                                        </div>
+                                        <div class="col-12 pe-0 col-md-3 col-lg-4">
+                                            <p class="card-text balance fs-5 fw-bolder text-center text-md-start">
+                                                {{numberFormat(account.balance)}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" id="opcCuentas"
+                                            class="opcCuentas btn col-12 col-md-5  p-0 py-1 dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-expanded="false">Opciones de cuenta</a>
+                                        <ul class="dropdown-menu" aria-labelledby="opcCuentas">
+                                            <li><a class="dropdown-item" :href="changePageTransfer(id)">Transferir</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Solicitar plazo fijo</a></li>
+                                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop">Dar de baja</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Baja-->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header justify-content-center">
+                                                <h5 class="modal-title" id="staticBackdropLabel">CONFIRMAR BAJA
+                                                    DE PRODUCTO
+                                                </h5>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <p>Debe comfirmar la operación para proceder con la baja del
+                                                    producto.</p>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Cancelar</button>
+                                                <button type="button" class="btn btn-primary btnConfirm"
+                                                    data-bs-toggle="modal"
+                                                    @click=" deleteAccount(account.id)">Confirmar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-11 col-lg-6 pe-0 pe-lg-2 ms-2 ms-md-0">
+                                <div class="accordion shadow" id="accordionPanelsStayOpenExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                                aria-controls="panelsStayOpen-collapseOne">
+                                                Cotización
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="panelsStayOpen-headingOne">
+                                            <div class="accordion-body p-0">
+                                                <table class="table table-dolar w-100 ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Moneda</th>
+                                                            <th>Compra</th>
+                                                            <th>Venta</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>USD</td>
+                                                            <td>${{dolarCompra}}</td>
+                                                            <td>${{dolarVenta}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row mt-4 mb-4 justify-content-center">
+                                <h5 class=" text-center col-lg-2">Movimientos</h5>
+                                <button id="pdfT" class="col-5 col-md-3 col-lg-2" data-bs-toggle="modal" data-bs-target="#pdfDownload">Descargar Pdf </button>
+                            </div>
+
+                            <!-- Modal Pdf download-->
+                            <div class="modal fade" id="pdfDownload" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Seleccione rango de fecha</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body row justify-content-around">
+                                            <div class="col-8 col-md-6 col-lg-6 mb-3 mb-lg-0">
+                                                <small class="text-center col-5">Desde</small>
+                                                <input class="col-12" type="datetime-local" v-model="from">
+                                            </div>
+                                            <div class="col-8 col-md-6 col-lg-6">
+                                                <small class="col-5 text-center">Hasta</small>
+                                                <input class="col-12" type="datetime-local" v-model="to">
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-primary btnPdfT" @click="createdPDF">Descargar <i
+                                                class="bi bi-file-earmark-arrow-down"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive col-12 px-3 mb-5">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Descripción</th>
+                                            <th>Monto</th>
+                                            <th>Balance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="transaction in transactions">
+                                            <td class="text-nowrap">{{formatDate(transaction.date)}}</td>
+                                            <td class="text-nowrap">{{transaction.description}}</td>
+                                            <td :class="transaction.type==='CREDIT' ?  'credito' : 'debito'">
+                                                {{numberFormat(transaction.amount)}}</td>
+                                            <td class="balanceTable">{{numberFormat(transaction.balance)}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </main>
+
+
+                    <footer
+                        class="container row mx-auto align-self-end justify-content-center justify-content-md-between align-items-center">
+                        <p class="col-8 col-md-5 col-lg-3 text-center p-0">&copy; Minhub Brothers Bank</p>
+                        <div id="menuFooter" class="col-4 row mx-0 pe-0 justify-content-md-center">
+                            <a href="http://www.facebook.com/" class="col-3 col-md-2 p-0 " target="_blank"
+                                rel="noopener noreferrer"><i id="facebook" class="bi bi-facebook facebook"></i></a>
+                            <a href="https://www.instagram.com/?hl=es" class="col-3 col-md-2 p-0" target="_blank"
+                                rel="noopener noreferrer"><i id="instagram" class="bi bi-instagram"></i></a>
+                            <a href="https://twitter.com/?lang=es" class="col-3 col-md-2 p-0" target="_blank"
+                                rel="noopener noreferrer"><i id="twitter" class="bi bi-twitter"></i></a>
+                        </div>
+
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./Scripts/account.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="shortcut icon" href="./assets/bank_logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/d55f8f06fd.js" crossorigin="anonymous"></script>
+    <title>Cuentas MBB</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- spinner -->
+        <div ref="spinner" class="spinnerContainer">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+            </div>
+        </div>
+        <div id="body" ref="body">
+            <header ref="header"
+                class="navbar  sticky-top row col-12 justify-content-between m-0 p-0 shadow overflow-hidden">
+                <a id="minhub" class="navbar-brand row col-md-6 p-0 pe-0  me-0 px-3 align-items-center" href="#">
+                    <img class="d-none d-md-block col-3 ms-3 my-2" style="height: 3rem; width: 4rem;"
+                        src="./assets/bank_logo.png" alt="">
+                    <p class="col-12 text-center text-md-start col-md-9 my-0 pe-0"> Mindhub Brothers Banks</p>
+                </a>
+                <div
+                    class="container m-0 col-12 col-md-4 col-lg-2 p-0 justify-content-between align-items-center align-items-md-center">
+                    <div class="dropdown col-4 col-lg-5 ">
+                        <a class="d-block link-dark text-decoration-none text-center dropdown-toggle" href="#"
+                            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./assets/melba.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                        </a>
+
+                        <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                            <li class="text-center">{{firstName}} {{lastName}}</li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Atención al cliente</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" @click="logOut" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                    <div class="navbar-nav text-center col-4 col-lg-6 pt-3 pt-md-0">
+                        <div id="salirBtn" class="nav-item mb-2 mb-md-3 text-nowrap me-2 mt-md-3">
+                            <a id="salir" class="nav-link px-2 py-1" @click="logOut" href="#">Salir <i
+                                    class="bi bi-box-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <button class="navbar-toggler navbar-dark my-3 col-3 mx-1 d-md-none collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </header>
+            <div class="container-fluid">
+                <div class="row d-flex ">
+                    <nav id="sidebarMenu" ref="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                        <div class="position-sticky pt-3">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active ms-2 shadow  mb-3" aria-current="page" href="#">
+                                        <i class="bi bi-currency-exchange"></i>
+                                        Cuentas
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  ms-2  mb-3" aria-current="page" href="./cards.html">
+                                        <i class="bi bi-credit-card-fill"></i>
+                                        Tarjetas
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <main ref="main"
+                        class="col-md-9 ms-sm-auto justify-content-center col-lg-10 ps-md-4 pe-md-0 flex-grow-1">
+                        <div
+                            class="d-flex  flex-wrap flex-md-nowrap justify-content-center align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4 class="h2" v-cloak>Bienvenido {{firstName}} {{lastName}}</h4>
+                        </div>
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade d-none w-95 d-lg-block"
+                            data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/hipotecario.jpg" class="d-block w-95" alt="...">
+                                    <div class="carousel-caption f1 px-3 ">
+                                        <p>Llegaron los prestamos Hipotecarios a la mejor taza</p>
+                                        <a href="./loan-application.html">Solicitalo ya!</a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/automotrizjpg.jpg" class="d-block w-95" alt="...">
+                                    <div class="carousel-caption f2">
+                                        <p>Prestamo Automotriz! Fácil de obtener.... fácil de pagar</p>
+                                        <a href="./loan-application.html">Solicitalo ya!</a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/personal.jpg" class="d-block w-95" alt="...">
+                                    <div class="carousel-caption f3 px-3 ">
+                                        <p>Solicita tu prestamo personal 100% online</p>
+                                        <a href="./loan-application.html">Solicitalo ya!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="row col-lg-11 mx-0 d-flex justify-content-center align-items-center my-3">
+                            <h5 id="h3Cuentas" class="text-center col-12 col-md-4 col-lg-4 my-0 mb-3 mb-md-0">Mis
+                                Cuentas</h5>
+                            <button class="btn col-5 col-md-3 col-lg-2 addAccount" v-if="3 > accounts.length"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdropModal">Crear cuenta</button>
+                        </div>
+                        <!-- Modal crear cuentas -->
+                        <div class="modal fade" id="staticBackdropModal" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header justify-content-center">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Seleccione tipo de Cuenta</h5>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                            <input type="radio" class="btn-check " name="color" id="ahorro"
+                                                autocomplete="off" value="AHORRO" v-model="picked">
+                                            <label class="btn btn-outline-ahorro me-3" id="btnAhorro" for="ahorro">Ahorro</label>
+                                            <input type="radio" class="btn-check " name="color" id="corriente"
+                                                autocomplete="off" value="CORRIENTE" v-model="picked">
+                                            <label class="btn btn-outline-corriente" id="btnCorriente" for="corriente">Corriente</label>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary creatAccount"
+                                            @click="createAccount">Crear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-11  col-lg-12 overflow-hidden">
+                            <div class="col-12 col-md-11 col-lg-6 ms-2 ms-md-0 mt-4 mb-2 mb-lg-0 mt-lg-0"
+                                v-for="account in accounts">
+                                <div class="card shadow mb-3">
+                                    <p class="card-header fs-6 fw-bold" v-if="account.type == 'AHORRO'" v-cloak>Caja de
+                                        Ahorro $ No.{{account.number}}
+                                    </p>
+                                    <p class="card-header fs-6 fw-bold" v-if="account.type == 'CORRIENTE'" v-cloak>Cta.
+                                        Corriente $ No.{{account.number}}
+                                    </p>
+                                    <div class=" card-body row  justify-content-center justify-content-md-between">
+                                        <div class="col-12 col-md-5 col-lg-5">
+                                            <p class="card-title fs-5">Saldo</p>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-6 px-lg-0 col-xl-3">
+                                            <p class="card-text fs-5 fw-bolder" v-cloak>
+                                                {{numberFormat(account.balance)}}</p>
+                                        </div>
+                                        <a href="#" :id="'opcCuentas'+account.id"
+                                            class="opcCuentas btn col-8 col-md-5 p-0 py-1 dropdown-toggle"
+                                            data-bs-toggle="dropdown" aria-expanded="false">Opciones de cuenta</a>
+                                        <ul class="dropdown-menu col-8 col-md-5"
+                                            :aria-labelledby="'opcCuentas'+account.id">
+                                            <li><a class="dropdown-item"
+                                                    :href="changePageTransfer(account.id)">Transferir</a></li>
+                                            <li><a class="dropdown-item" href="./loan-application.html">Solicitar
+                                                    prestamo</a></li>
+                                            <li><a class="dropdown-item" data-bs-toggle="modal"
+                                                    :data-bs-target="'#staticBackdrop'+account.id">Dar de baja</a></li>
+                                        </ul>
+                                        <a :href="changePage(account.id)" :id="account.id"
+                                            class="cuenta p-0 pe-md-3 pe-lg-0 col-7 align-self-center col-md-3  text-center">Ver
+                                            cuenta
+                                            <i class="bi bi-caret-right-fill align-items-center"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Baja-->
+                                <div class="modal fade" :id="'staticBackdrop'+account.id" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header justify-content-center">
+                                                <h5 class="modal-title" id="staticBackdropLabel">CONFIRMAR BAJA
+                                                    DE PRODUCTO
+                                                </h5>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <p>Debe comfirmar la operación para proceder con la baja del
+                                                    producto.</p>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Cancelar</button>
+                                                <button type="button" class="btn btn-primary btnConfirm"
+                                                    data-bs-toggle="modal"
+                                                    @click=" deleteAccount(account.id)">Confirmar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion col-12 col-md-11 col-lg-12  mx-2 mt-3 mb-5 "
+                                id="accordionPanelsStayOpenExample">
+                                <div class="accordion-item accordionLoans">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                        <button class="accordion-button fs-4  fw-bold" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+                                            aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                            Prestamos
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show "
+                                        aria-labelledby="panelsStayOpen-headingOne">
+                                        <div class="accordion-body row justify-content-center">
+                                            <div class=" text-center mb-3  col-5">
+                                                <a class="btnLoans p-2 mb-3"
+                                                    href="./loan-application.html">Solicitar</a>
+                                            </div>
+                                            <div v-if="loans.length > 0">
+                                                <div class="card shadow mb-1" v-for="loan in loans">
+                                                    <div class=" card-body row  justify-content-between">
+                                                        <div class="col-12 col-md-4 col-lg-3">
+                                                            <p class="card-title fs-5" v-cloak>Tipo:
+                                                                <b>{{loan.name}}</b>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-12 p-md-0 col-md-4 col-lg-3">
+                                                            <p class="card-text fs-5" v-cloak>Monto:
+                                                                <b>{{numberFormat(loan.amount)}}</b>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-12 col-md-3 col-lg-2">
+                                                            <p class="card-text fs-5 " v-cloak>Pagos:
+                                                                <b>{{loan.payments}}</b>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div v-else class="row justify-content-between">
+                                                <p class="m-0 col-12 col-lg-4 p-0 text-center">Actualmente no posee
+                                                    prestamos!</p>
+                                                <a class="align-items-center col-12 text-center col-lg-3 loan"
+                                                    href="#">Solicita el tuyo ya<i
+                                                        class="bi bi-arrow-right-circle-fill ms-1 align-items-center"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <footer ref="footer"
+                        class="container row mx-auto align-self-end justify-content-center justify-content-md-between align-items-center">
+                        <p class="col-8 col-md-5 col-lg-3 text-center p-0">&copy; Minhub Brothers Bank</p>
+                        <div id="menuFooter" class="col-4 row mx-0 pe-0 justify-content-md-center">
+                            <a href="http://www.facebook.com/" class="col-3 col-md-2 p-0 " target="_blank"
+                                rel="noopener noreferrer"><i id="facebook" class="bi bi-facebook facebook"></i></a>
+                            <a href="https://www.instagram.com/?hl=es" class="col-3 col-md-2 p-0" target="_blank"
+                                rel="noopener noreferrer"><i id="instagram" class="bi bi-instagram"></i></a>
+                            <a href="https://twitter.com/?lang=es" class="col-3 col-md-2 p-0" target="_blank"
+                                rel="noopener noreferrer"><i id="twitter" class="bi bi-twitter"></i></a>
+                        </div>
+
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./Scripts/accounts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="shortcut icon" href="./assets/bank_logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/d55f8f06fd.js" crossorigin="anonymous"></script>
+    <title>Perfil MBB</title>
+</head>
+
+<body>
+    <div id="app">
+        <header class="navbar sticky-top row col-12 justify-content-between m-0 p-0 shadow">
+            <a id="minhub" class="navbar-brand row col-md-6 p-0 pe-0  me-0 px-3 align-items-center" href="#">
+                <img class="d-none d-md-block col-3 ms-3 my-2" style="height: 3rem; width: 4rem;"
+                    src="./assets/bank_logo.png" alt="">
+                <p class="col-12 text-center text-md-start col-md-9 my-0 pe-0"> Mindhub Brothers Banks</p>
+            </a>
+            <div
+                class="container m-0 col-12 col-md-4 col-lg-2 p-0 justify-content-between align-items-center align-items-md-center">
+                <div class="dropdown col-4 col-lg-5 ">
+                    <a class="d-block link-dark text-decoration-none text-center dropdown-toggle" href="#"
+                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/80934398-ilustración-de-imagen-de-perfil-mujer-vector.jpg" alt="mdo"
+                            width="32" height="32" class="rounded-circle">
+                    </a>
+
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                        <li class="text-center">{{client.firstName}} {{client.lastName}}</li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Atención al cliente</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" @click="logOut" href="#">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-nav text-center col-4 col-lg-6 pt-3 pt-md-0">
+                    <div id="salirBtn" class="nav-item mb-2 mb-md-3 text-nowrap me-2 mt-md-3">
+                        <a id="salir" class="nav-link px-2 py-1" href="#" @click="logOut">Salir <i class="bi bi-box-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+            <button class="navbar-toggler navbar-dark my-3 col-3 mx-1 d-md-none collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </header>
+        <div class="container-fluid">
+            <div class="row d-flex ">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active ms-2 shadow  mb-3" aria-current="page" href="./accounts.html">
+                                    <i class="bi bi-currency-exchange"></i>
+                                    Cuentas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link  ms-2  mb-3" aria-current="page" href="./cards.html">
+                                    <i class="bi bi-credit-card-fill"></i>
+                                    Tarjetas
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9  col-lg-10 px-0" v-cloak>
+                 
+                </main>
+
+                <footer
+                    class="container row mx-auto align-self-end justify-content-center justify-content-md-between align-items-center">
+                    <p class="col-8 col-md-5 col-lg-3 text-center p-0">&copy; Minhub Brothers Bank</p>
+                    <div id="menuFooter" class="col-4 row mx-0 pe-0 justify-content-md-center">
+                        <a href="http://www.facebook.com/" class="col-3 col-md-2 p-0 " target="_blank"
+                            rel="noopener noreferrer"><i id="facebook" class="bi bi-facebook facebook"></i></a>
+                        <a href="https://www.instagram.com/?hl=es" class="col-3 col-md-2 p-0" target="_blank"
+                            rel="noopener noreferrer"><i id="instagram" class="bi bi-instagram"></i></a>
+                        <a href="https://twitter.com/?lang=es" class="col-3 col-md-2 p-0" target="_blank"
+                            rel="noopener noreferrer"><i id="twitter" class="bi bi-twitter"></i></a>
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./Scripts/profile.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+[v-cloak]{
+display: none;
+}
+:root{
+    --main-color1: #A21232;
+    --main-color2: #c72b4d;
+    --main-color3: #e94a6c;
+    --main-color4: #f788a0;
+    --main-color5: #faf2da;
+ }
+
+div.container-fluid{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    background:rgb(247, 245, 245);
+}
+header{
+    background: linear-gradient(to top, var(--main-color1),var(--main-color2),var(--main-color3));
+    min-height: 7rem !important;
+    padding: 0 !important;
+}
+h1{
+    text-align: center !important;
+    color: white;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+}
+div.col-12{
+    margin-top: 1rem !important;
+}
+h2, h3{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:var(--main-color1);
+}
+h3.list{
+    margin-top: 1rem !important;
+    
+}
+img{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 5rem !important;
+    height: 5rem;
+}
+div#rest{
+    margin-left: 1rem !important;
+    margin-bottom: 1rem !important;
+    border-left: var(--main-color1) 2px solid;
+    height: 28rem !important;
+}
+pre.pre{
+    padding-left: .5rem !important;
+}
+#add, button.delete, #add2{
+background: var(--main-color1);
+color: white;
+}
+button.delete{
+    border-radius: 5px;
+    border: var(--main-color1) 2px solid;
+
+}
+button.delete:hover{
+    background: var(--main-color3) !important;
+}
+#add:hover{
+    background: var(--main-color3);
+}
+#add3{
+    background: var(--main-color1);
+    color: white;
+    border-radius: 5px;
+    border: var(--main-color1) 2px solid;
+}
+
+.btn-modificar{
+    background: var(--main-color1);
+    border-radius: 5px;
+    border: var(--main-color1) 2px solid;
+    color: white;
+}
+.btn-modificar:hover{
+    background: var(--main-color3);
+}
+th, td{
+    text-align: center;
+}
+td{
+    background: var(--main-color5) !important;
+}
+th{
+    background: var(--main-color1) !important;  
+    color: white;
+    border-bottom: 2px solid white !important;
+}
+
+footer{
+    background: linear-gradient(to top, var(--main-color1),var(--main-color2), var(--main-color3));
+    min-height: 5rem;
+    padding: 0 !important;
+}
+p.col-8.col-lg-3{
+    margin-bottom: 0 !important;
+    color: white;
+}
+#salir{
+    background: #fff;
+    color: var(--main-color1);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+#salir:hover{
+    transform: scale(1.1);
+}
