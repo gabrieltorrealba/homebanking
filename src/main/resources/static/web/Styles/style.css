@@ -16,6 +16,9 @@ display: none;
  #body{
      display: none;
  }
+ main{
+     min-height: 80vh;
+ }
  div.container-fluid, div#app{
     margin-left: 0 !important;
     margin-right: 0 !important;
