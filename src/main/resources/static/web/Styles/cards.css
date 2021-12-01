@@ -9,6 +9,9 @@
 #body{
     display: none;
 }
+#mainCards{
+    min-height: 80vh;
+}
 .card-group{
 height: 160px;
 width: 280px;
