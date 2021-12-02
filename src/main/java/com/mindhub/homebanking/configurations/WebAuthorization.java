@@ -5,6 +5,7 @@ import org.apache.catalina.SessionListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -12,6 +13,7 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import javax.servlet.ServletContext;
@@ -71,6 +73,7 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
         http.exceptionHandling()
                 .authenticationEntryPoint((req, res, exc) -> res.sendRedirect("/web/index.html"));
+        http.cors();
 
     }
 
@@ -92,4 +95,5 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
             session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
         }
     }
+
 }

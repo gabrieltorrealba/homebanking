@@ -21,11 +21,12 @@ const app = Vue.createApp({
                 cvv: this.cvv,
                 amount: this.amount
             })
-            axios.post('http://localhost:8080/api/payments?account=VIN-31526387',{
+            axios.post('http://localhost:8080/api/payments',{
                 number: this.cardNumber.toString(),
                 cvv: this.cvv,
                 amount: this.amount,
-                description: this.description
+                description: this.description,
+                accountNumber: "VIN-31526387"
             })
             .then(response =>{
                 this.message = response.data

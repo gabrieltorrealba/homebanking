@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 
 @Transactional
 @RestController
-@RequestMapping("/api")
 public class PaymentsController {
 
     @Autowired
@@ -30,11 +29,12 @@ public class PaymentsController {
     @Autowired
     TransactionService transactionService;
 
-    @PostMapping("/payments")
-    public ResponseEntity<?> registerPayments(@RequestBody PaymentsDTO paymentsDTO, @RequestParam String account){
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @PostMapping("/api/payments")
+    public ResponseEntity<?> registerPayments(@RequestBody PaymentsDTO paymentsDTO){
         String newCardNumber = paymentsDTO.getNumber().substring(0,4)+"-"+paymentsDTO.getNumber().substring(4,8)+"-"+paymentsDTO.getNumber().substring(8,12)+"-"+paymentsDTO.getNumber().substring(12,16);
         Card newCard = cardService.findByNumber(newCardNumber);
-        Account accountTo = accountService.getByNumber(account);
+        Account accountTo = accountService.getByNumber(paymentsDTO.getAccountNumber());
         LocalDateTime newDay = LocalDateTime.now();
         if (newCard == null){
             return new ResponseEntity<>("Tarjeta no existe", HttpStatus.FORBIDDEN);

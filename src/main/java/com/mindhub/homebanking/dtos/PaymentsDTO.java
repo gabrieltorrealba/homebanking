@@ -5,16 +5,18 @@ public class PaymentsDTO {
     private int cvv;
     private Double amount;
     private String description;
+    private String accountNumber;
 
 
     public PaymentsDTO() {
     }
 
-    public PaymentsDTO(String number, int cvv, Double amount, String description) {
+    public PaymentsDTO(String number, int cvv, Double amount, String description, String accountNumber) {
         this.number = number;
         this.cvv = cvv;
         this.amount = amount;
         this.description = description;
+        this.accountNumber = accountNumber;
     }
 
     public String getNumber() {
@@ -49,4 +51,11 @@ public class PaymentsDTO {
         this.description = description;
     }
 
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 }
