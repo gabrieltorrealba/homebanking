@@ -23,8 +23,8 @@ const app = Vue.createApp({
             axios.post('/api/login',param,
             {headers:{'content-type':'application/x-www-form-urlencoded'}})
             .then(response =>{
-                let prueba = this.email
-                 prueba == "admin@admin.com" ? window.location.assign("/manager.html") : window.location.assign("/web/accounts.html") 
+
+                 this.email.includes("@admin.com")  ? window.location.assign("/manager.html") : window.location.assign("/web/accounts.html")
             })
             .catch(e=> {
                 console.log(e.response.data.status)
