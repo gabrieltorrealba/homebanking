@@ -247,7 +247,7 @@
                                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show "
                                         aria-labelledby="panelsStayOpen-headingOne">
                                         <div class="accordion-body row justify-content-center">
-                                            <div class=" text-center mb-3  col-5">
+                                            <div class=" text-center mb-3  col-5" v-if="loans.length > 0">
                                                 <a class="btnLoans p-2 mb-3"
                                                     href="./loan-application.html">Solicitar</a>
                                             </div>
@@ -276,7 +276,7 @@
                                                 <p class="m-0 col-12 col-lg-4 p-0 text-center">Actualmente no posee
                                                     prestamos!</p>
                                                 <a class="align-items-center col-12 text-center col-lg-3 loan"
-                                                    href="#">Solicita el tuyo ya<i
+                                                    href="./loan-application.html">Solicita el tuyo ya<i
                                                         class="bi bi-arrow-right-circle-fill ms-1 align-items-center"></i></a>
                                             </div>
                                         </div>

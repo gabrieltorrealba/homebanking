@@ -124,6 +124,6 @@ public class LoanController {
         }
         Loan newLoan = new Loan(loan.getName(), loan.getMaxAmount(), loan.getPayments(), loan.getPercentage());
         loanService.save(newLoan);
-        return new ResponseEntity<>("creado",HttpStatus.CREATED);
+        return new ResponseEntity<>("Prestamo creado",HttpStatus.CREATED);
     }
 }

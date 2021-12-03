@@ -109,7 +109,7 @@ public class TransactionController {
         accountDestination.setBalance(balanceDestination);
         accountService.save(accountDestination);
 
-        return new ResponseEntity<>("transacción exitosa", HttpStatus.CREATED);
+        return new ResponseEntity<>("Transacción exitosa", HttpStatus.CREATED);
     }
 
     @PostMapping("/transactions/pdf")

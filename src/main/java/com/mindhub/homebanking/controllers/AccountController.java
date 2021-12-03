@@ -66,7 +66,7 @@ public class AccountController {
         }
         Account newAccount = new Account(newAccountNumber, LocalDateTime.now(), 0, newClient, type);
         this.accountService.save(newAccount);
-        return new ResponseEntity<>("created", HttpStatus.CREATED);
+        return new ResponseEntity<>("Cuenta creada", HttpStatus.CREATED);
     }
 
     @DeleteMapping("/clients/current/accounts/{id}")

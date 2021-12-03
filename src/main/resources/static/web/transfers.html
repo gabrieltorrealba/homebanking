@@ -162,7 +162,7 @@
                                 class="d-flex flex-column align-items-center">
                                 <h3 class="text-center formTitle">Introduzca cuenta</h3>
                                 <div class="mb-3" v-cloak>
-                                    <input id="inputAccount" type="text" v-model="selectedOther"
+                                    <input id="inputAccount" type="text" maxlength="12" v-model="selectedOther"
                                         placeholder="Cuenta destino" required>
                                 </div>
                                 <div class="btn-box">
@@ -192,7 +192,7 @@
                             <form id="form6" ref="form6" class="d-flex flex-column align-items-center">
                                 <h3 class="text-center formTitle">Descripción</h3>
                                 <div class="mb-3" v-cloak>
-                                    <input id="inputAccount3" type="text" v-model="description"
+                                    <input id="inputAccount3" maxlength="20" type="text" v-model="description"
                                         placeholder="Breve descripción" v-model="description" required>
                                 </div>
                                 <div class="btn-box">
