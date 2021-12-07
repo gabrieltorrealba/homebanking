@@ -29,7 +29,7 @@ public class PaymentsController {
     @Autowired
     TransactionService transactionService;
 
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping("/api/payments")
     public ResponseEntity<?> registerPayments(@RequestBody PaymentsDTO paymentsDTO){
         String newCardNumber = paymentsDTO.getNumber().substring(0,4)+"-"+paymentsDTO.getNumber().substring(4,8)+"-"+paymentsDTO.getNumber().substring(8,12)+"-"+paymentsDTO.getNumber().substring(12,16);
