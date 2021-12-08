@@ -37,18 +37,21 @@ public class HomebankingApplication {
 			Client client1=new Client("Melba", "Morel", "melba@mindhub.com", passwordEncoder.encode("melba1234"));
 			Client client2=new Client("Gabriel", "Torrealba", "gabriel.torrealba@gmail.com",passwordEncoder.encode("123456"));
 			Client client3=new Client("Admin", "Admin","admin@admin.com", passwordEncoder.encode("admin"));
+			Client client4=new Client("Acquerello","Restaurant", "acquerello@gmail.com", "acquerello");
 
 			//SAVE CLIENTS IN REPOSITORY
 			clientRepository.save(client1);
 			clientRepository.save(client2);
 			clientRepository.save(client3);
+			clientRepository.save(client4);
 
 			//CREATE ACCOUNTS
 			Account account1= new Account("VIN-25387649",LocalDateTime.now().minusMonths(5), 50000, client1, AccountType.AHORRO);
 			Account account2= new Account("VIN-51679438",LocalDateTime.now().plusDays(1), 7500, client1, AccountType.CORRIENTE);
 			Account account3= new Account("VIN-31526387",LocalDateTime.now(),5500, client2, AccountType.AHORRO);
 			Account account4= new Account("VIN-46375269",LocalDateTime.now().plusDays(1),6000, client2, AccountType.CORRIENTE);
-
+			Account account5=new Account("VIN-64578965", LocalDateTime.now().minusDays(4),10000,client4,AccountType.CORRIENTE);
+			accountRepository.save(account5);
 
 			//CREATE TRANSACTIONS
 			Transaction transaction1= new Transaction(TransactionType.CREDIT,2000,"transferencia cta. 6236", LocalDateTime.now().minusMonths(1), account1.getBalance() + 2000);
