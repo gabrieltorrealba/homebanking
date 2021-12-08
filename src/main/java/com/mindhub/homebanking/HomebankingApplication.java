@@ -37,7 +37,7 @@ public class HomebankingApplication {
 			Client client1=new Client("Melba", "Morel", "melba@mindhub.com", passwordEncoder.encode("melba1234"));
 			Client client2=new Client("Gabriel", "Torrealba", "gabriel.torrealba@gmail.com",passwordEncoder.encode("123456"));
 			Client client3=new Client("Admin", "Admin","admin@admin.com", passwordEncoder.encode("admin"));
-			Client client4=new Client("Acquerello","Restaurant", "acquerello@gmail.com", "acquerello");
+			Client client4=new Client("Acquerello","Restaurant", "acquerello@gmail.com", passwordEncoder.encode("acquerello"));
 
 			//SAVE CLIENTS IN REPOSITORY
 			clientRepository.save(client1);
