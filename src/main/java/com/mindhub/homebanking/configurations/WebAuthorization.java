@@ -73,6 +73,7 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
         http.exceptionHandling()
                 .authenticationEntryPoint((req, res, exc) -> res.sendRedirect("/web/index.html"));
+
         http.cors();
 
     }

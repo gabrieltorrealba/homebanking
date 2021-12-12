@@ -37,7 +37,7 @@ public class ClientController {
            return new ResponseEntity<>(Util.makeDTO("clients", this.clientService.getAll().stream().map(ClientDTO::new).collect(Collectors.toList())),
                    HttpStatus.OK);
        }catch (Exception e){
-           return new ResponseEntity<>("Error",HttpStatus.BAD_REQUEST);
+           return new ResponseEntity<>("Error" + e.getMessage(),HttpStatus.BAD_REQUEST);
        }
    }
 

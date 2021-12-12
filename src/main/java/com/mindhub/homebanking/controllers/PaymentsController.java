@@ -37,21 +37,20 @@ public class PaymentsController {
         Account accountTo = accountService.getByNumber(paymentsDTO.getAccountNumber());
         LocalDateTime newDay = LocalDateTime.now();
         if (newCard == null){
-            return new ResponseEntity<>("Tarjeta no existe", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Card doesn't exist", HttpStatus.FORBIDDEN);
         }
         Account newAccount = accountService.getByNumber(newCard.getAccount().getNumber());
-        System.out.println(newCard.getThruDate());
         if (accountTo == null){
             return new ResponseEntity<>("Cuenta destino no existe", HttpStatus.FORBIDDEN);
         }
         if (newCard.getCvv() != paymentsDTO.getCvv()){
-            return new ResponseEntity<>("Codigo de seguridad incorrecto", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Cvv invalid", HttpStatus.FORBIDDEN);
         }
         if (newCard.getThruDate().isBefore(newDay)){
-            return new ResponseEntity<>("Tarjeta vencida", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Card expire", HttpStatus.FORBIDDEN);
         }
         if (newCard.getAccount().getBalance() < paymentsDTO.getAmount()){
-            return new ResponseEntity<>("Saldo insuficiente", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("don't have enough balance", HttpStatus.FORBIDDEN);
         }
         String cardNumber = newCard.getNumber().substring(newCard.getNumber().length() - 4);
 
@@ -67,6 +66,6 @@ public class PaymentsController {
         accountTo.setBalance(accountTo.getBalance() + paymentsDTO.getAmount());
         accountService.save(accountTo);
 
-        return new ResponseEntity<>("Pago exitoso", HttpStatus.CREATED);
+        return new ResponseEntity<>("Payment successful", HttpStatus.CREATED);
     }
 }

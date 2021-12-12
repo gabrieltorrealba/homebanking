@@ -163,8 +163,8 @@ public class HomebankingApplication {
 			Card card1= new Card(CardType.DEBIT,CardColor.GOLD,"4026-3248-5687-5942",321,LocalDateTime.now(),LocalDateTime.now().plusYears(5), client1, account1);
 			Card card2= new Card(CardType.CREDIT,CardColor.TITANIUM,"4546-3542-7869-4351",763,LocalDateTime.now().minusYears(5).minusMonths(1),LocalDateTime.now().minusMonths(1), client1, account1);
 			Card card3= new Card(CardType.DEBIT,CardColor.GOLD,"4025-2323-5768-9832",886,LocalDateTime.now(),LocalDateTime.now().plusYears(5), client2, account3);
-			Card card4= new Card(CardType.CREDIT,CardColor.SILVER,"5143-8675-3451-7694",554,LocalDateTime.now(),LocalDateTime.now().plusYears(5), client2, account3);
-			Card card5= new Card(CardType.CREDIT,CardColor.SILVER,"5143-8675-3451-7694",554,LocalDateTime.now(),LocalDateTime.now().plusYears(5), client1, account2);
+			Card card4= new Card(CardType.CREDIT,CardColor.SILVER,"4143-8675-3451-7694",554,LocalDateTime.now(),LocalDateTime.now().plusYears(5), client2, account3);
+			Card card5= new Card(CardType.CREDIT,CardColor.SILVER,"4143-8675-3451-7694",554,LocalDateTime.now(),LocalDateTime.now().plusYears(5), client1, account2);
 
 			//SAVE CARDS IN REPOSITORY
 			cardRepository.save(card1);
